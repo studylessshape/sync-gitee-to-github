@@ -10,7 +10,7 @@
 - `GITEE_SSH_PRIVATE_KEY`：ssh 连接的私钥
 - `REPO_TOKEN`：Github 有仓库权限的 Token
 
-**注意：**一定不要泄露私钥和 Token。
+**注意**：一定不要泄露私钥和 Token。
 
 最后的 `git push github master -f` 为强制推送，可以删除 `-f` 设置来取消强制推送。
 
