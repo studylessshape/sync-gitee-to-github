@@ -1,0 +1,31 @@
+name: Mirror sync
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+env:
+  GITEE_REPO_NAME: <your gitee repo name>
+  GITHUB_REPO_NAME: <your github repo name>
+  GITEE_NAME: <your gitee name>
+  NAME: <your name> # Github name
+  EMAIL: <your email>
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sync gitee repo
+        run: |
+          mkdir ~/.ssh
+          echo "Host gitee.com
+          StrictHostKeyChecking=no" > ~/.ssh/config
+          echo "${{ secrets.GITEE_SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 700 ~/.ssh/id_ed25519
+          eval $(ssh-agent)
+          git config user.name --global "${{ env.NAME }}"
+          git config user.email --global "${{ env.EMAIL }}"
+          ssh -T git@gitee.com
+          git clone git@gitee.com:${{ env.GITEE_NAME }}/${{ env.GITEE_REPO_NAME }}.git
+          cd ${{ env.GITEE_REPO_NAME }}
+          git remote add github https://${{ secrets.REPO_TOKEN }}@github.com/${{ env.NAME }}/${{ env.GITHUB_REPO_NAME }}
+          git push github master -f
