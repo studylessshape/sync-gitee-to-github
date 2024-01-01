@@ -1,4 +1,6 @@
 # Gitee 仓库同步到 Github（支持私有仓库）
+可以查看我的博客来了解完整的经过：[记一次使用 Github action 同步 Gitee 仓库到 Github](https://studylessshape.github.io/post/note/record-github-action-for-gitee-to-github/)。
+
 - [使用 ssh](ssh-to-gitee.yml)
 - [使用 Gitee Open API](gitee-open-api.yml)
 
