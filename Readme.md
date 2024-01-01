@@ -12,6 +12,8 @@
 
 **注意：**一定不要泄露私钥和 Token。
 
+最后的 `git push github master -f` 为强制推送，可以删除 `-f` 设置来取消强制推送。
+
 ## 使用 Gitee Open API 说明
 将文件中尖括号全替换为自己的内容。
 
