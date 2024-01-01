@@ -10,7 +10,7 @@
 - `GITEE_SSH_PRIVATE_KEY`：ssh 连接的私钥
 - `REPO_TOKEN`：Github 有仓库权限的 Token
 
-**注意：**一定不要泄露私钥和 Token。
+**注意**：一定不要泄露私钥和 Token。
 
 ## 使用 Gitee Open API 说明
 将文件中尖括号全替换为自己的内容。
